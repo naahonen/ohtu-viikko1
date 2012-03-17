@@ -19,24 +19,34 @@ public class VarastoTest {
     @Before
     public void setUp() {
         varasto = new Varasto(10);
+        varasto2 = new Varasto(20);
+        varasto3 = new Varasto(30);
     }
  
     @Test
     public void konstruktoriLuoTyhjanVaraston() {
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, varasto2.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, varasto3.getSaldo(), vertailuTarkkuus);
     }
  
     @Test
     public void uudellaVarastollaOikeaTilavuus() {
         assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(20, varasto2.getTilavuus(), vertailuTarkkuus);
+        assertEquals(30, varasto3.getTilavuus(), vertailuTarkkuus);
     }
  
     @Test
     public void lisaysLisaaSaldoa() {
         varasto.lisaaVarastoon(8);
+        varasto2.lisaaVarastoon(23);
+        varasto3.lisaaVarastoon(-3);
  
         // saldon pitäisi olla sama kun lisätty määrä
         assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(20, varasto2.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, varasto3.getSaldo(), vertailuTarkkuus);
     }
  
     @Test
